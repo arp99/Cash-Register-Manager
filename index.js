@@ -10,6 +10,7 @@ inputBill.addEventListener('input',()=>{
     }else{
         inputCash.value = ''
         inputCash.disabled = true;
+        outputTable.style.display = 'none';
     }
 })
 
