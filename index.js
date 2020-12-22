@@ -2,6 +2,7 @@ const inputBill = document.querySelector('input[name=bill_amt]')
 const inputCash = document.querySelector('input[name=cash_amt]')
 const btnCalculate = document.querySelector('#btn_calculate')
 const outputTable = document.querySelector('#output_table')
+const returnMsg = document.querySelector('#no_return_msg')
 
 inputBill.addEventListener('input',()=>{
     if(inputBill.value >0){
@@ -33,26 +34,34 @@ function calculateMinNotes(bill , cashGiven){
 
 function displayResults(currencyMap){
     
-    outputTable.innerHTML = ``;
-    let resultingRows = `<tr id="heading">
-                            <th>Currency Value</th>
-                            <th>Notes Count</th>
-                        </tr>`
-    currencyMap.forEach((notesCount , value)=>{
-        if(notesCount > 0){
-            resultingRows +=`
-            <tr class="data">
-            <td>${value}</td>
-            <td>${notesCount}</td>
-            </tr>
-            `
-        }
-    })
-    outputTable.innerHTML +=resultingRows
-    outputTable.style.display = 'block'
+    if(currencyMap.size === 0){
+        returnMsg.innerText = 'Customer has no change return pending.'
+    }else{
+        returnMsg.innerText = '';
+        returnMsg.style.display = 'none';
+        outputTable.innerHTML = ``;
+        let resultingRows = `<tr id="heading">
+                                <th>Currency Value</th>
+                                <th>Notes Count</th>
+                            </tr>`
+        currencyMap.forEach((notesCount , value)=>{
+            if(notesCount > 0){
+                resultingRows +=`
+                <tr class="data">
+                <td>${value}</td>
+                <td>${notesCount}</td>
+                </tr>
+                `
+            }
+        })
+        outputTable.innerHTML +=resultingRows
+        outputTable.style.display = 'block'
+    }
 }
 
 btnCalculate.addEventListener('click',()=>{
-    let currencyMap = calculateMinNotes(inputBill.value , inputCash.value)
-    displayResults(currencyMap);
+    if(inputBill.value >0 && inputCash.value > 0){
+        let currencyMap = calculateMinNotes(inputBill.value , inputCash.value)
+        displayResults(currencyMap);
+    }
 })
