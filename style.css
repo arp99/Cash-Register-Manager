@@ -29,6 +29,11 @@ main{
                 inset 2px 5px 10px -2px #eec43a, 
                 inset 5px 10px 8px -2px #f0db8a;
 }
+@media only screen and (max-width: 1024px){
+    main{
+        width: 85%;
+    }
+}
 h1{
     color: #23a890;
     letter-spacing: 0.2rem;
@@ -47,7 +52,7 @@ h1{
     letter-spacing: 0.2rem;
 }
 .main__input__element input{
-    width: 55%;
+    width: 75%;
     margin-top: 0.4rem;
     border-radius: 0.5rem;
     padding: 0.6rem 0.5rem;
