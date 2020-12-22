@@ -3,6 +3,15 @@ const inputCash = document.querySelector('input[name=cash_amt]')
 const btnCalculate = document.querySelector('#btn_calculate')
 const outputTable = document.querySelector('#output_table')
 
+inputBill.addEventListener('input',()=>{
+    if(inputBill.value >0){
+        inputCash.disabled = false;
+    }else{
+        inputCash.disabled = true;
+    }
+})
+
+
 function calculateMinNotes(bill , cashGiven){
     
     let currencyValues = [2000,500,100,20,10,5,1]
