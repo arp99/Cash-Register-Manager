@@ -11,11 +11,11 @@
     <main>
         <div class="main__input__element">
             <label for="bill_amt">Bill Amount:</label>
-            <input type="number" name="bill_amt" placeholder="Enter bill here">
+            <input type="number" name="bill_amt" placeholder="Enter bill here" min="0">
         </div>
         <div class="main__input__element">
             <label for="cash_amt">Cash Amount:</label>
-            <input type="number" name="cash_amt" placeholder="Enter cash given:" disabled>
+            <input type="number" name="cash_amt" placeholder="Enter cash given:" min="0" disabled>
         </div>
         <button id="btn_calculate">Calculate</button>
         <table>
