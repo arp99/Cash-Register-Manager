@@ -7,8 +7,8 @@
 :root{
     --primary-color: #f38181;
     --secondary-color: #fce38a;
-    --text-color: #95e1d3;
-    --tertiary-color: #eaffd0;
+    --color3: #95e1d3;
+    --color4: #eaffd0;
 }
 body{
     font-family: 'Fredoka One', cursive;
@@ -28,6 +28,11 @@ main{
     box-shadow: 2px 8px 10px -2px #c45252, 
                 inset 2px 5px 10px -2px #eec43a, 
                 inset 5px 10px 8px -2px #f0db8a;
+}
+h1{
+    color: #23a890;
+    letter-spacing: 0.2rem;
+    margin: 1rem 0;
 }
 .main__input__element{
     width: 50%;
@@ -57,17 +62,45 @@ main{
     padding: 0.3rem 0.8rem;
     border-radius: 0.2rem;
     outline: none;
-    border: 2px solid var(--text-color);
-    background-color: var(--tertiary-color);
+    border: 2px solid var(--color3);
+    background-color: var(--color4);
     color: var(--primary-color);
     letter-spacing: 0.1rem;
     font-weight: bold;
     cursor: pointer;
 }
 #btn_calculate:hover{
-    background-color: var(--text-color);
-    color: var(--tertiary-color);
+    background-color: var(--color3);
+    color: var(--color4);
 }
-#para{
-    color: black;
+table{
+    margin: 1rem auto;
+
+    border-collapse: collapse;
+    table-layout: auto;
+}
+table,td{
+    border-radius: 20px;
+}
+#output_table{
+    background-color: var(--color4);
+    display:none;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#output_table th{
+    background-color: var(--color3);
+    padding: 0.2rem 0.5rem;
+}
+#output_table th:nth-child(1){
+    border-top-left-radius: 0.5rem;
+}
+#output_table th:nth-child(2){
+    border-top-right-radius: 0.5rem;
+}
+
+#output_table td{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.2rem 0.5rem;
 }
