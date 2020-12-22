@@ -7,6 +7,7 @@ inputBill.addEventListener('input',()=>{
     if(inputBill.value >0){
         inputCash.disabled = false;
     }else{
+        inputCash.value = ''
         inputCash.disabled = true;
     }
 })
@@ -32,6 +33,7 @@ function calculateMinNotes(bill , cashGiven){
 
 function displayResults(currencyMap){
     
+    outputTable.innerHTML = ``;
     let resultingRows = `<tr id="heading">
                             <th>Currency Value</th>
                             <th>Notes Count</th>
