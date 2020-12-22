@@ -1,7 +1,7 @@
 const inputBill = document.querySelector('input[name=bill_amt]')
 const inputCash = document.querySelector('input[name=cash_amt]')
 const btnCalculate = document.querySelector('#btn_calculate')
-const paraElement = document.querySelector('#para')
+const outputTable = document.querySelector('#output_table')
 
 function calculateMinNotes(bill , cashGiven){
     
@@ -18,18 +18,30 @@ function calculateMinNotes(bill , cashGiven){
             change_amt = change_amt % value;
         }
     })
-
-    displayResults(currencyMap);
+    return currencyMap
 }
 
 function displayResults(currencyMap){
-    let resultStr = ``;
+    
+    let resultingRows = `<tr id="heading">
+                            <th>Currency Value</th>
+                            <th>Notes Count</th>
+                        </tr>`
     currencyMap.forEach((notesCount , value)=>{
-        resultStr += `Denomination: ${value}  Notes Count: ${notesCount}\n`
+        if(notesCount > 0){
+            resultingRows +=`
+            <tr class="data">
+            <td>${value}</td>
+            <td>${notesCount}</td>
+            </tr>
+            `
+        }
     })
-    paraElement.innerText = resultStr;
+    outputTable.innerHTML +=resultingRows
+    outputTable.style.display = 'block'
 }
 
 btnCalculate.addEventListener('click',()=>{
-    calculateMinNotes(inputBill.value , inputCash.value)
+    let currencyMap = calculateMinNotes(inputBill.value , inputCash.value)
+    displayResults(currencyMap);
 })
