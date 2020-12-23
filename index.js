@@ -5,7 +5,7 @@ const outputTable = document.querySelector('#output_table')
 const returnMsg = document.querySelector('#no_return_msg')
 
 inputBill.addEventListener('input',()=>{
-    if(inputBill.value >0){
+    if(Number.parseInt(inputBill.value) >0){
         inputCash.disabled = false;
     }else{
         inputCash.value = ''
@@ -63,12 +63,13 @@ function displayResults(currencyMap){
 }
 
 btnCalculate.addEventListener('click',()=>{
-    if(inputBill.value >0 && inputCash.value > 0 && inputCash.value >= inputBill.value){
-        let currencyMap = calculateMinNotes(inputBill.value , inputCash.value)
-        displayResults(currencyMap);
-    }else if(inputCash.value < inputBill.value){
+    if(Number.parseInt(inputCash.value) < Number.parseInt(inputBill.value)){
         outputTable.innerHTML = ``;
         returnMsg.innerText = 'Insufficient cash amount!';
         returnMsg.style.display = 'block';
+    }
+    else if(Number.parseInt(inputBill.value) >0 && Number.parseInt(inputCash.value) > 0 && Number.parseInt(inputCash.value) >= Number.parseInt(inputBill.value)){
+        let currencyMap = calculateMinNotes(Number.parseInt(inputBill.value) , Number.parseInt(inputCash.value))
+        displayResults(currencyMap);
     }
 })
