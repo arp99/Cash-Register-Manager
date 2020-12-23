@@ -36,7 +36,9 @@ function calculateMinNotes(bill , cashGiven){
 function displayResults(currencyMap){
     
     if(currencyMap.size === 0){
+        outputTable.innerHTML = ``;
         returnMsg.innerText = 'Customer has no change return pending.'
+        returnMsg.style.display = 'block';
     }else{
         returnMsg.innerText = '';
         returnMsg.style.display = 'none';
@@ -61,8 +63,12 @@ function displayResults(currencyMap){
 }
 
 btnCalculate.addEventListener('click',()=>{
-    if(inputBill.value >0 && inputCash.value > 0){
+    if(inputBill.value >0 && inputCash.value > 0 && inputCash.value >= inputBill.value){
         let currencyMap = calculateMinNotes(inputBill.value , inputCash.value)
         displayResults(currencyMap);
+    }else if(inputCash.value < inputBill.value){
+        outputTable.innerHTML = ``;
+        returnMsg.innerText = 'Insufficient cash amount!';
+        returnMsg.style.display = 'block';
     }
 })
