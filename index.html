@@ -11,13 +11,13 @@
     <main>
         <div class="main__input__element">
             <label for="bill_amt">Bill Amount:</label>
-            <input type="number" name="bill_amt" placeholder="Enter bill here" min="0">
+            <input type="number" name="bill_amt" placeholder="Enter bill here" min="0" tabindex="0">
         </div>
         <div class="main__input__element">
             <label for="cash_amt">Cash Amount:</label>
-            <input type="number" name="cash_amt" placeholder="Enter cash given:" min="0" disabled>
+            <input type="number" name="cash_amt" placeholder="Enter cash given:" min="0" disabled tabindex="0">
         </div>
-        <button id="btn_calculate">Calculate</button>
+        <button id="btn_calculate" tabindex="0">Calculate</button>
         <table>
             <tbody id="output_table"></tbody>
         </table>

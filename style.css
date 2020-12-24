@@ -78,6 +78,12 @@ h1{
     background-color: var(--color3);
     color: var(--color4);
 }
+#btn_calculate:focus{
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 2px solid #285f55;
+    border-style: dotted;
+}
 table{
     margin: 1rem auto;
 
