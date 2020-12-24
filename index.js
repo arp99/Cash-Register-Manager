@@ -11,6 +11,7 @@ inputBill.addEventListener('input',()=>{
         inputCash.value = ''
         inputCash.disabled = true;
         outputTable.style.display = 'none';
+        returnMsg.style.display = 'none';
     }
 })
 
